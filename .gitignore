@@ -1,6 +1,39 @@
+# Dependencias. Se vuelven a bajar con `npm install`, y son enormes.
 node_modules/
+
+# Lo que compila Nest.
 dist/
+coverage/
+*.tsbuildinfo
+
+# ── El certificado, y esto es lo importante de este archivo ──
+#
+# `cert/llave.pem` es la clave **privada** del gateway: es lo que demuestra que
+# el servidor es quien dice ser. Si llega a GitHub, cualquiera puede hacerse
+# pasar por él, y en un repositorio público no se arregla borrándola después —
+# queda en el historial y en las copias de quien lo haya clonado.
+#
+# Es el error más caro que se comete en este ramo. El certificado se genera en
+# cada computador con el comando de `docs/https-y-wireshark.md`; no se comparte.
+cert/
+
+# Las capturas de Wireshark son evidencia tuya, y pesan. Van a Pulso, no acá.
+capturas/*.pcapng
+capturas/*.pcap
+
+# Variables de entorno, y las credenciales que agrega L4 (tramo 2.5).
 .env
+.env.local
 .env.*
 !.env.example
-*.tsbuildinfo
+ficha.txt
+cuerpo.json
+
+# Basura del sistema y del editor.
+.DS_Store
+Thumbs.db
+*.log
+npm-debug.log*
+.idea/
+.vscode/*
+!.vscode/extensions.json
